@@ -422,6 +422,10 @@ def worker(
         # if it's not an instance try to get it from the string
         if not callable(task["func"]):
             f = pydoc.locate(f)
+
+        if Conf.WORKER_FUNC_DECORATOR:
+            f = Conf.WORKER_FUNC_DECORATOR(f)
+
         close_old_django_connections()
         timer_value = task.pop("timeout", timeout)
         # signal execution
