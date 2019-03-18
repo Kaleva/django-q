@@ -416,6 +416,8 @@ def worker(
                 result = (e, False)
                 if error_reporter:
                     error_reporter.report()
+        if Conf.WORKER_FUNC_DECORATOR:
+            f = Conf.WORKER_FUNC_DECORATOR(f)
         # We're still going
         if not result:
             close_old_django_connections()
