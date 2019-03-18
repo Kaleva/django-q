@@ -368,6 +368,11 @@ def worker(task_queue, result_queue, timer, timeout=Conf.TIMEOUT):
                 result = (e, False)
                 if error_reporter:
                     error_reporter.report()
+        if Conf.WORKER_FUNC_MODIFIER:
+            module, func = Conf.WORKER_FUNC_MODIFIER.rsplit('.', 1)
+            m = importlib.import_module(module)
+            modifier = getattr(m, func)
+            f = modifier(f)
         # We're still going
         if not result:
             db.close_old_connections()
