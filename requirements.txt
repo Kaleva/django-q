@@ -4,26 +4,26 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-arrow==0.14.5
-blessed==1.15.0
-boto3==1.9.207
+arrow==0.14.5             # via -r requirements.in
+blessed==1.15.0           # via -r requirements.in
+boto3==1.9.207            # via -r requirements.in
 botocore==1.12.207        # via boto3, s3transfer
 certifi==2019.6.16        # via requests
 chardet==3.0.4            # via requests
-django-picklefield==2.0
-django-redis==4.10.0
+django-picklefield==2.0   # via -r requirements.in
+django-redis==4.10.0      # via -r requirements.in
 django==2.2.4             # via django-picklefield, django-redis
 docutils==0.14            # via botocore
-hiredis==1.0.0
+hiredis==1.0.0            # via -r requirements.in
 idna==2.8                 # via requests
 iron-core==1.2.0          # via iron-mq
-iron-mq==0.9
+iron-mq==0.9              # via -r requirements.in
 jmespath==0.9.4           # via boto3, botocore
-psutil==5.6.3
-pymongo==3.9.0
+psutil==5.6.6             # via -r requirements.in
+pymongo==3.9.0            # via -r requirements.in
 python-dateutil==2.8.0    # via arrow, botocore, iron-core
 pytz==2019.2              # via django
-redis==3.3.7
+redis==3.3.7              # via -r requirements.in, django-redis
 requests==2.22.0          # via iron-core
 s3transfer==0.2.1         # via boto3
 six==1.12.0               # via blessed, python-dateutil
